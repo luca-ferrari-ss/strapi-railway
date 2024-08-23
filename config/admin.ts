@@ -1,17 +1,17 @@
 export default ({ env }) => ({
-  apiToken: {
-    salt: env('API_TOKEN_SALT', 'someRandomLongString'),
-  },
-  auditLogs: { // only accessible with an Enterprise plan
-    enabled: env.bool('AUDIT_LOGS_ENABLED', true),
-  },
   auth: {
-    secret: env('ADMIN_JWT_SECRET', 'someSecretKey'),
+    secret: env('ADMIN_JWT_SECRET'),
   },
-  transfer: { 
-    token: { 
-      salt: env('TRANSFER_TOKEN_SALT', 'anotherRandomLongString'),
-    } 
+  apiToken: {
+    salt: env('API_TOKEN_SALT'),
   },
-  url: "/dashboard",
+  transfer: {
+    token: {
+      salt: env('TRANSFER_TOKEN_SALT'),
+    },
+  },
+  flags: {
+    nps: env.bool('FLAG_NPS', true),
+    promoteEE: env.bool('FLAG_PROMOTE_EE', true),
+  },
 });
